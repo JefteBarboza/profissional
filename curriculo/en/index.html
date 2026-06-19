@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jefte Barboza da Silva: Enterprise Architect</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0f0f0f;
+    --ink-soft: #3a3a3a;
+    --ink-muted: #6b6b6b;
+    --rule: #d4c9b8;
+    --accent: #1a3a5c;
+    --accent-light: #e8eff7;
+    --gold: #b8960c;
+    --page-bg: #faf8f4;
+    --white: #ffffff;
+    --a4-w: 794px;
+    --a4-h: 1123px;
+    --pad-x: 48px;
+    --pad-y: 36px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #ccc8c0;
+    color: var(--ink);
+    padding: 32px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .cv-page {
+    background: var(--page-bg);
+    width: var(--a4-w);
+    height: var(--a4-h);
+    overflow: hidden;
+    flex-shrink: 0;
+    box-shadow: 0 4px 32px rgba(0,0,0,0.18), 0 1px 4px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    transform: scale(1.083);
+    transform-origin: top center;
+    margin-bottom: calc((var(--a4-h) * 0.083) + 0px);
+  }
+
+  /* HEADER */
+  .header {
+    background: var(--accent);
+    padding: 28px var(--pad-x) 22px;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .header::before {
+    content:''; position:absolute; top:-50px; right:-50px;
+    width:220px; height:220px; border-radius:50%;
+    background:rgba(255,255,255,0.04);
+  }
+  .header-top {
+    display:flex; justify-content:space-between;
+    align-items:flex-start; gap:24px;
+  }
+  .name-block h1 {
+    font-family:'Playfair Display',serif;
+    font-size:30px; font-weight:700; color:#fff;
+    letter-spacing:-0.3px; line-height:1.1;
+  }
+  .name-block .title {
+    font-family:'DM Mono',monospace; font-size:9px;
+    font-weight:500; color:rgba(255,255,255,0.55);
+    letter-spacing:2.5px; text-transform:uppercase; margin-top:8px;
+  }
+  .contact-block { text-align:right; flex-shrink:0; }
+  .contact-block a, .contact-block span {
+    display:block; font-size:11px; color:rgba(255,255,255,0.72);
+    text-decoration:none; line-height:1.8; font-weight:300;
+  }
+  .header-divider {
+    height:1px; background:rgba(255,255,255,0.15); margin:14px 0 12px;
+  }
+  .summary {
+    font-size:11px; line-height:1.65;
+    color:rgba(255,255,255,0.85); font-weight:300;
+    text-align:justify; hyphens:auto;
+  }
+  .summary strong {
+    color:#fff; font-weight:500;
+  }
+
+  /* HEADER COMPACTO */
+  .header-compact {
+    background:var(--accent); padding:11px var(--pad-x);
+    display:flex; justify-content:space-between; align-items:center;
+    flex-shrink:0;
+  }
+  .hc-name {
+    font-family:'Playfair Display',serif; font-size:13.5px;
+    font-weight:600; color:#fff;
+  }
+  .hc-title {
+    font-family:'DM Mono',monospace; font-size:8px;
+    color:rgba(255,255,255,0.48); letter-spacing:2px;
+    text-transform:uppercase; margin-top:2px;
+  }
+  .hc-right { display:flex; flex-direction:column; align-items:flex-end; gap:2px; }
+  .hc-right a {
+    font-family:'DM Mono',monospace; font-size:9px;
+    color:rgba(255,255,255,0.48); text-decoration:none;
+  }
+
+  /* CORPO */
+  .body {
+    padding: 0 var(--pad-x) var(--pad-y);
+    flex: 1;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* SKILLS STRIP */
+  .skills-strip {
+    background:var(--accent-light); margin:0 calc(-1 * var(--pad-x));
+    padding:12px var(--pad-x); border-bottom:1px solid var(--rule);
+    flex-shrink:0;
+  }
+  .skills-strip-grid {
+    display:grid; grid-template-columns:repeat(3,1fr); gap:10px;
+  }
+  .skill-group h4 {
+    font-family:'DM Mono',monospace; font-size:7.5px; letter-spacing:2px;
+    text-transform:uppercase; color:var(--accent); font-weight:500; margin-bottom:4px;
+  }
+  .skill-tags { display:flex; flex-wrap:wrap; gap:3px; }
+  .tag {
+    font-size:9px; font-weight:500; color:var(--accent);
+    background:var(--white); border:1px solid rgba(26,58,92,0.2);
+    padding:1px 6px; border-radius:2px; white-space:nowrap;
+  }
+
+  /* SEÇÃO */
+  section { margin-top:16px; flex-shrink:0; }
+  .section-label {
+    font-family:'DM Mono',monospace; font-size:7.5px; letter-spacing:2.5px;
+    text-transform:uppercase; color:var(--gold); font-weight:500; margin-bottom:2px;
+  }
+  .section-title {
+    font-family:'Playfair Display',serif; font-size:17px; font-weight:600;
+    color:var(--ink); padding-bottom:6px; border-bottom:2px solid var(--rule);
+    margin-bottom:12px;
+  }
+
+  /* CARGO */
+  .job { margin-bottom:12px; padding-bottom:12px; border-bottom:1px solid var(--rule); }
+  .job:last-child { border-bottom:none; margin-bottom:0; padding-bottom:0; }
+  .job-header {
+    display:flex; justify-content:space-between;
+    align-items:flex-start; gap:12px; margin-bottom:2px;
+  }
+  .job-company {
+    font-family:'Playfair Display',serif; font-size:13px;
+    font-weight:600; color:var(--accent);
+  }
+  .job-period {
+    font-family:'DM Mono',monospace; font-size:9px; color:var(--ink-muted);
+    white-space:nowrap; flex-shrink:0; margin-top:2px;
+  }
+  .job-role { font-size:10.5px; font-weight:600; color:var(--ink-soft); margin-bottom:1px; }
+  .job-sector { font-size:9px; color:var(--ink-muted); font-style:italic; margin-bottom:6px; }
+  .job-desc {
+    font-size:10px; line-height:1.55; color:var(--ink-soft); margin-bottom:6px;
+    font-weight:300; text-align:justify; hyphens:auto;
+  }
+  .job-achievements h5 {
+    font-family:'DM Mono',monospace; font-size:7px; letter-spacing:1.8px;
+    text-transform:uppercase; color:var(--ink-muted); margin-bottom:3px;
+  }
+  .job-achievements ul { list-style:none; display:flex; flex-direction:column; gap:3px; }
+  .job-achievements li {
+    font-size:10px; line-height:1.5; color:var(--ink-soft);
+    padding-left:13px; position:relative; text-align:justify; hyphens:auto;
+  }
+  .job-achievements li::before {
+    content:'▸'; position:absolute; left:0; color:var(--gold); font-size:8px; top:1px;
+  }
+  .project-tag {
+    display:inline-block; font-family:'DM Mono',monospace; font-size:8px;
+    color:var(--accent); background:var(--accent-light);
+    padding:1px 6px; margin-bottom:3px; border-left:2px solid var(--accent);
+  }
+  .impact-badge {
+    display:inline-block; font-family:'DM Mono',monospace; font-size:8px;
+    color:var(--gold); background:rgba(184,150,12,0.08);
+    border:1px solid rgba(184,150,12,0.3);
+    padding:0px 5px; border-radius:2px; margin-left:4px;
+    vertical-align:middle;
+  }
+
+  /* DUAS COLUNAS */
+  .two-col {
+    display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:16px; flex:1;
+  }
+
+  /* EDUCAÇÃO */
+  .edu-entry { margin-bottom:9px; padding-bottom:9px; border-bottom:1px solid var(--rule); }
+  .edu-entry:last-child { border-bottom:none; margin-bottom:0; padding-bottom:0; }
+  .edu-degree { font-size:10.5px; font-weight:600; color:var(--ink); line-height:1.35; margin-bottom:1px; }
+  .edu-institution { font-size:9.5px; color:var(--accent); font-weight:500; margin-bottom:1px; }
+  .edu-year { font-family:'DM Mono',monospace; font-size:8.5px; color:var(--ink-muted); }
+  .edu-desc { font-size:9px; line-height:1.5; color:var(--ink-muted); margin-top:2px; text-align:justify; hyphens:auto; }
+
+  /* IDIOMAS */
+  .lang-row {
+    display:flex; justify-content:space-between; align-items:center;
+    padding:5px 0; border-bottom:1px solid var(--rule);
+  }
+  .lang-row:last-child { border-bottom:none; }
+  .lang-name { font-size:11px; font-weight:500; }
+  .lang-level { font-family:'DM Mono',monospace; font-size:9px; color:var(--ink-muted); }
+
+  /* COMPETÊNCIAS */
+  .competency-list { display:flex; flex-direction:column; gap:4px; }
+  .competency-item {
+    font-size:10px; color:var(--ink-soft); padding-left:13px;
+    position:relative; line-height:1.45; text-align:justify; hyphens:auto;
+  }
+  .competency-item::before {
+    content:'◆'; position:absolute; left:0; color:var(--gold); font-size:5.5px; top:4px;
+  }
+
+  /* CERTIFICAÇÕES */
+  .cert-group-label {
+    font-family:'DM Mono',monospace; font-size:7px; letter-spacing:1.8px;
+    text-transform:uppercase; color:var(--gold); margin-bottom:3px;
+    margin-top:8px; display:block;
+  }
+  .cert-group-label:first-child { margin-top:0; }
+  .cert-item {
+    font-size:10px; color:var(--ink-soft); padding:2px 0;
+    border-bottom:1px solid var(--rule); display:flex; gap:6px; align-items:center;
+  }
+  .cert-item:last-child { border-bottom:none; }
+  .cert-dot { width:4px; height:4px; border-radius:50%; background:var(--gold); flex-shrink:0; }
+
+  /* RODAPÉ */
+  .footer {
+    background:var(--accent); padding:9px var(--pad-x);
+    display:flex; justify-content:space-between; align-items:center; flex-shrink:0;
+  }
+  .footer span {
+    font-family:'DM Mono',monospace; font-size:8px;
+    color:rgba(255,255,255,0.35); letter-spacing:0.8px;
+  }
+
+  /* ENDEAVOR BANNER */
+  .endeavor-banner {
+    background: rgba(184,150,12,0.08);
+    border-left: 3px solid var(--gold);
+    padding: 7px 12px;
+    margin: 10px 0 0 0;
+    font-size: 10px;
+    color: var(--ink-soft);
+    line-height: 1.5;
+  }
+  .endeavor-banner strong {
+    font-family:'DM Mono',monospace;
+    font-size:7.5px; letter-spacing:1.5px;
+    text-transform:uppercase; color:var(--gold);
+    display:block; margin-bottom:3px;
+  }
+
+  @media print {
+    @page { size:A4; margin:0; }
+    body { background:white; padding:0; gap:0; }
+    .cv-page {
+      box-shadow:none;
+      page-break-after:always;
+      break-after:page;
+      transform:none;
+      margin-bottom:0;
+    }
+    .cv-page:last-child { page-break-after:avoid; break-after:avoid; }
+  }
+</style>
+</head>
+<body>
+
+<!-- PAGE 1 — Header · Skills · J&Tech · Auren -->
+<article class="cv-page">
+
+  <header class="header">
+    <div class="header-top">
+      <div class="name-block">
+        <h1>Jefte Barboza da Silva</h1>
+        <p class="title">Enterprise Architect · 15+ Years of Experience · TOGAF 9 · COBIT · ITIL</p>
+      </div>
+      <div class="contact-block">
+        <a href="mailto:jefte.barboza@gmail.com">jefte.barboza@gmail.com</a>
+        <a href="https://www.linkedin.com/in/jeftebarboza" target="_blank">linkedin.com/in/jeftebarboza</a>
+        <a href="https://jeftebarboza.github.io/profissional" target="_blank">jeftebarboza.github.io/profissional</a>
+        <span>São Paulo, Brazil</span>
+      </div>
+    </div>
+    <div class="header-divider"></div>
+    <p class="summary">
+      Certified Enterprise Architect (TOGAF 9 · COBIT · ITIL) with 15+ years of progressive experience designing and implementing <strong>enterprise-grade governance frameworks, data architectures, and AI strategy</strong> for organizations operating critical national infrastructure across energy, telecommunications, healthcare insurance, financial services, and retail sectors. Proven record of translating complex business requirements into scalable, compliant, and measurable technology solutions in environments subject to rigorous regulatory standards, including SOX, LGPD, and GDPR. Currently operating as an independent consultant through J&Tech Ltda., delivering high-impact enterprise architecture and data governance solutions to Brazil's largest organizations — simultaneously serving multiple Fortune-equivalent clients across regulated sectors — with directly transferable expertise to U.S. priorities in <strong>broadband infrastructure modernization, clean energy governance, AI adoption, and critical infrastructure resilience</strong>.
+    </p>
+  </header>
+
+  <div class="body">
+
+    <div class="skills-strip">
+      <div class="skills-strip-grid">
+        <div class="skill-group">
+          <h4>Frameworks &amp; Methodologies</h4>
+          <div class="skill-tags">
+            <span class="tag">TOGAF 9</span><span class="tag">ArchiMate</span>
+            <span class="tag">COBIT</span><span class="tag">ITIL</span>
+            <span class="tag">Zachman</span><span class="tag">C4 Model</span>
+            <span class="tag">LeanIX</span><span class="tag">BPMN</span>
+            <span class="tag">DAMA</span><span class="tag">SAFe</span>
+            <span class="tag">OKR</span><span class="tag">DDD</span>
+            <span class="tag">SOX</span><span class="tag">GDPR</span>
+            <span class="tag">NIST AI RMF</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h4>Platforms &amp; Tools</h4>
+          <div class="skill-tags">
+            <span class="tag">Azure DevOps</span><span class="tag">Jira Software</span>
+            <span class="tag">Confluence</span><span class="tag">Bitbucket</span>
+            <span class="tag">Atlassian Compass</span><span class="tag">Databricks</span>
+            <span class="tag">BigQuery</span><span class="tag">Microsoft Fabric</span>
+            <span class="tag">Power BI</span><span class="tag">SharePoint</span>
+            <span class="tag">Microsoft Azure</span><span class="tag">AWS</span>
+            <span class="tag">SAP Power Designer</span><span class="tag">ERwin</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h4>Areas of Expertise</h4>
+          <div class="skill-tags">
+            <span class="tag">Enterprise Architecture</span>
+            <span class="tag">Data Governance</span>
+            <span class="tag">AI Strategy</span>
+            <span class="tag">IT Governance</span>
+            <span class="tag">Cloud Architecture</span>
+            <span class="tag">Portfolio Management</span>
+            <span class="tag">Capability Mapping</span>
+            <span class="tag">MLOps / DevOps</span>
+            <span class="tag">Regulatory Compliance</span>
+            <span class="tag">Digital Transformation</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section style="margin-top:14px">
+      <p class="section-label">Professional Trajectory</p>
+      <h2 class="section-title">Professional Experience</h2>
+
+      <!-- J&Tech -->
+      <div class="job">
+        <div class="job-header">
+          <span class="job-company">J&Tech Ltda. (Jefte Barboza da Silva Tecnologia da Informação Ltda.)</span>
+          <span class="job-period">Jul 2020 — Present</span>
+        </div>
+        <p class="job-role">Technology Executive · Enterprise Architect · Independent Technology Consultant</p>
+        <p class="job-sector">Independent Consulting Firm · B2B Engagements · Concurrent Multi-Client Portfolio</p>
+        <p class="job-desc">
+          Owner and principal consultant of an independent technology consulting firm delivering enterprise architecture, data governance, AI strategy, and digital transformation services to Brazil's largest organizations across critical and regulated sectors. Operates under B2B consulting agreements — simultaneously serving multiple large corporations in energy, telecommunications, healthcare insurance, and financial services — demonstrating sustained market demand for specialized expertise without the structural constraints of traditional employment. Active engagements include Auren Energia (renewable energy, 6+ GW), Vtal Neutral Network (national fiber-optic infrastructure, 426,000 km), and Seguros Unimed (healthcare insurance, regulated sector).
+        </p>
+      </div>
+
+      <!-- Auren Energia -->
+      <div class="job">
+        <div class="job-header">
+          <span class="job-company">Auren Energia</span>
+          <span class="job-period">Mar 2025 — Apr 2026 (Completed)</span>
+        </div>
+        <p class="job-role">Technology Leader — Architecture, Data, Software &amp; AI</p>
+        <p class="job-sector">Renewable Energy · 6+ GW Installed Capacity · Brazil's Largest Private Energy Generator</p>
+        <p class="job-desc">
+          Engaged as independent consultant through J&Tech Ltda. to lead enterprise architecture and data strategy for Brazil's largest private renewable energy generator. Directed two multidisciplinary squads of 14 professionals — including Data Engineers, Solution and Data Architects, Integration Engineers, and Developers — overseeing the design and delivery of mission-critical data infrastructure supporting real-time energy generation planning, grid balancing, and regulatory reporting across 6+ GW of installed capacity.
+        </p>
+        <div class="job-achievements">
+          <h5>Key Projects</h5>
+          <ul>
+            <li><span class="project-tag">Data Hub</span> Architected a transactional data hub responsible for ingesting external data streams, applying governance controls, and exposing processed data to internal systems via APIs — establishing the foundational data layer for all analytical and operational consumption across the organization's energy portfolio.</li>
+            <li><span class="project-tag">Smart — Energy Planning Platform</span> Led architecture design for a corporate analytical application supporting critical energy planning decisions, including GSF (Generation Scaling Factor) analysis, Energy Balance modeling, Sub-market and MRE (Energy Reallocation Mechanism) forecasting — directly informing executive decisions with national grid impact.</li>
+          </ul>
+        </div>
+        <div class="job-achievements" style="margin-top:6px">
+          <h5>Key Contributions</h5>
+          <ul>
+            <li>Defined data governance standards, information security controls, and code quality frameworks across full development lifecycle — from architecture design through deployment and ongoing governance.</li>
+            <li>Led comparative technical and strategic evaluation of Amazon Q Business vs. Microsoft Copilot as enterprise generative AI platforms, including TCO analysis, proof-of-concept execution, use-case mapping, and architectural recommendation to executive leadership.</li>
+            <li>Conducted architectural assessment of Databricks, Snowflake, AWS SageMaker, and Microsoft Fabric to develop a scalable Data Lakehouse strategy, evaluating performance, FinOps efficiency, governance capabilities, and AI/ML workload alignment.</li>
+          </ul>
+        </div>
+      </div>
+
+    </section>
+  </div>
+
+  <footer class="footer">
+    <span>JEFTE BARBOZA DA SILVA · ENTERPRISE ARCHITECT</span>
+    <span>PAGE 1 OF 4</span>
+  </footer>
+</article>
+
+
+<!-- PAGE 2 — Vtal · Seguros Unimed -->
+<article class="cv-page">
+
+  <div class="header-compact">
+    <div>
+      <p class="hc-name">Jefte Barboza da Silva</p>
+      <p class="hc-title">Enterprise Architect · TOGAF 9 · COBIT · ITIL</p>
+    </div>
+    <div class="hc-right">
+      <a href="mailto:jefte.barboza@gmail.com">jefte.barboza@gmail.com</a>
+      <a href="https://www.linkedin.com/in/jeftebarboza">linkedin.com/in/jeftebarboza</a>
+    </div>
+  </div>
+
+  <div class="body">
+    <section style="margin-top:16px">
+      <p class="section-label">Trajectory — Continued</p>
+      <h2 class="section-title">Professional Experience</h2>
+
+      <!-- Vtal -->
+      <div class="job">
+        <div class="job-header">
+          <span class="job-company">Vtal Neutral Network</span>
+          <span class="job-period">Oct 2023 — May 2025 (Completed)</span>
+        </div>
+        <p class="job-role">Corporate &amp; Solutions Architect · IT Governance · Agility &amp; DevOps</p>
+        <p class="job-sector">Telecommunications · Brazil's Largest Neutral Fiber-Optic Network · 426,000 km · 2,380 Municipalities · All 27 States</p>
+        <p class="job-desc">
+          Engaged as an independent consultant through J&Tech Ltda. via Triad Integration to restructure the entire IT Value Chain and establish enterprise-grade Portfolio Governance for the Technology Vice-Presidency of Brazil's largest neutral fiber-optic network operator. Operated within a high-stakes environment where IT governance failures carry operational consequences for millions of citizens, businesses, and government institutions dependent on the national telecommunications infrastructure.
+        </p>
+        <div class="job-achievements">
+          <h5>Key Projects</h5>
+          <ul>
+            <li><span class="project-tag">Agile Delivery Management — Azure DevOps Unification</span> Designed and led the unification of tools and processes across the Technology Vice-Presidency, implementing Azure DevOps as the central governance platform covering 30+ active strategic projects, 10+ internal teams, and multiple external software factories — delivering unprecedented visibility, traceability, and portfolio control across all strategic technology initiatives.</li>
+            <li><span class="project-tag">IT Value Chain Review — Project Pipeline Redesign</span> Co-led the redesign of the entire IT project pipeline process, conducting workshops and training sessions for internal teams and vendor software factories. Created a centralized process and performance portal on SharePoint that became the definitive governance reference for the entire Technology Vice-Presidency.</li>
+          </ul>
+        </div>
+        <div class="job-achievements" style="margin-top:6px">
+          <h5>Governance Impact</h5>
+          <ul>
+            <li>Eliminated information silos between Technology, Operations, Commercial, and Business units — enabling, for the first time in Vtal's history, unified real-time visibility into project status, risk exposure, and resource allocation at the portfolio level across all 27 Brazilian states.</li>
+            <li>Established automated documentation and audit trail requirements for 100% of active projects, substantially reducing regulatory audit preparation time and ensuring consistent compliance across the portfolio.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Seguros Unimed -->
+      <div class="job">
+        <div class="job-header">
+          <span class="job-company">Seguros Unimed</span>
+          <span class="job-period">Apr 2020 — Dec 2023 (Completed)</span>
+        </div>
+        <p class="job-role">Enterprise Architect · IT Agility Lead · Solutions Architect · Senior Data Architect</p>
+        <p class="job-sector">Healthcare Insurance · One of Brazil's Largest Insurers · Highly Regulated Sector · Founded 1994</p>
+        <p class="job-desc">
+          Engaged as an independent consultant through J&Tech Ltda. to design and implement enterprise governance frameworks, digital transformation initiatives, and technology operating models for one of Brazil's largest healthcare insurance organizations — a sector subject to stringent regulatory compliance requirements analogous to U.S. HIPAA and CMS mandates.
+        </p>
+        <div class="job-achievements">
+          <h5>Key Achievements</h5>
+          <ul>
+            <li>Designed and implemented an enterprise governance and operational framework that unified 300+ users across Claims Regulation, Health Provision, and Customer Management under a single project tracking and governance model — the first organization-wide governance structure of its kind at Seguros Unimed.</li>
+            <li>Restructured KPI measurement and performance management infrastructure using Google Looker, enabling data-driven executive decision-making across multiple business directorates simultaneously.</li>
+            <li>Developed an agile organizational model for the Superintendent's office that was replicated across the Technology Provision Directorate and adopted at the strategic leadership level — demonstrating the scalability of governance frameworks beyond their initial implementation scope.</li>
+            <li>Implemented Jira Software and Atlassian Compass as the organizational backbone for technology governance, standardizing software development pipelines and portfolio tracking across all technology teams.</li>
+          </ul>
+        </div>
+      </div>
+
+    </section>
+  </div>
+
+  <footer class="footer">
+    <span>JEFTE BARBOZA DA SILVA · ENTERPRISE ARCHITECT</span>
+    <span>PAGE 2 OF 4</span>
+  </footer>
+</article>
+
+
+<!-- PAGE 3 — Riachuelo · Saraiva · Via Varejo · Casas Bahia -->
+<article class="cv-page">
+
+  <div class="header-compact">
+    <div>
+      <p class="hc-name">Jefte Barboza da Silva</p>
+      <p class="hc-title">Enterprise Architect · TOGAF 9 · COBIT · ITIL</p>
+    </div>
+    <div class="hc-right">
+      <a href="mailto:jefte.barboza@gmail.com">jefte.barboza@gmail.com</a>
+      <a href="https://www.linkedin.com/in/jeftebarboza">linkedin.com/in/jeftebarboza</a>
+    </div>
+  </div>
+
+  <div class="body">
+    <section style="margin-top:16px">
+      <p class="section-label">Trajectory — Continued</p>
+      <h2 class="section-title">Professional Experience</h2>
+
+      <!-- Riachuelo -->
+      <div class="job">
+        <div class="job-header">
+          <span class="job-company">Riachuelo (Guararapes Group)</span>
+          <span class="job-period">Mar 2019 — Feb 2020</span>
+        </div>
+        <p class="job-role">Business Architect (IT Specialist) · Senior Data Architect</p>
+        <p class="job-sector">Fashion Retail · 426+ Stores Nationwide · ~40,000 Employees</p>
+        <div class="job-achievements">
+          <ul>
+            <li><span class="project-tag">Midway Digital Bank</span> Served as Business Architect in the greenfield structuring of Riachuelo's digital bank — mapping and designing business processes for newly created operational areas, engaging stakeholders for requirements definition, and maintaining the company's process value chain throughout the initiative.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Saraiva -->
+      <div class="job">
+        <div class="job-header">
+          <span class="job-company">Saraiva e Siciliano</span>
+          <span class="job-period">Oct 2018 — Jan 2019</span>
+        </div>
+        <p class="job-role">Senior Solutions &amp; Data Architect (IT Specialist)</p>
+        <p class="job-sector">Cultural Retail · 100+ Stores Nationwide</p>
+        <div class="job-achievements">
+          <ul>
+            <li>Implemented SAP Power Designer 16.6 as the organizational standard for database object documentation and data modeling — establishing a replicable methodology for legacy system inventory.</li>
+            <li>Developed a database inventory process as the foundational layer for cloud migration (BigQuery), improving data accessibility and storage efficiency across legacy systems.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Via Varejo -->
+      <div class="job">
+        <div class="job-header">
+          <span class="job-company">Via Varejo S.A. (Casas Bahia Group)</span>
+          <span class="job-period">Jul 2012 — Oct 2018</span>
+        </div>
+        <p class="job-role">IT Architecture Team Lead · IT Coordinator · Senior Data Architect · Business Analyst</p>
+        <p class="job-sector">Retail · Brazil's Market Leader in Electronics &amp; Appliances · Publicly Traded (NYSE-listed) · Casas Bahia &amp; Ponto Frio</p>
+        <p class="job-desc">
+          Led enterprise data architecture and IT governance for one of Brazil's largest publicly traded retail corporations — a NYSE-listed company subject to rigorous U.S. Sarbanes-Oxley Act (SOX) compliance requirements. Managed a portfolio of 20+ data architecture projects covering 25+ core corporate systems, designing the governance frameworks that directly protected shareholder value and ensured continued regulatory compliance across annual SOX audit cycles.
+        </p>
+        <div class="job-achievements">
+          <h5>Key Achievements</h5>
+          <ul>
+            <li>Architected and institutionalized the Enterprise Data Governance framework using the DAMA methodology — conducting a comprehensive data management maturity assessment across 25+ corporate systems and developing a strategic roadmap that transformed data from a siloed operational byproduct into a standardized, auditable, and reliable corporate asset.</li>
+            <li>Designed robust data lineage architectures, granular access controls, and automated audit trail frameworks that ensured full compliance with U.S. Sarbanes-Oxley Act (SOX) requirements — directly protecting the organization from financial penalties and reputational risk during annual external audit cycles.</li>
+            <li>Implemented the ARIS Business Server and Publisher platforms for enterprise-wide business process modeling (BPM/BPMN), and led two enterprise-scale deployments of ERwin r9 for data architecture documentation — recognized by the CTO for leadership in architecture, data governance, and process modeling.</li>
+            <li>Implemented a Data Management evolution program covering MDM (Master Data Management), data quality controls, and reference data integration — managing a concurrent portfolio of 20+ active governance projects across the organization.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Casas Bahia -->
+      <div class="job">
+        <div class="job-header">
+          <span class="job-company">Casas Bahia</span>
+          <span class="job-period">Feb 2008 — Jun 2012</span>
+        </div>
+        <p class="job-role">Operations Coordinator (NOC) · Support Analyst (NOC)</p>
+        <p class="job-sector">Retail · 940+ Stores · 26.3 Million Registered Customers</p>
+        <div class="job-achievements">
+          <ul>
+            <li>Led the complete restructuring of the Help Desk operation — transforming a team of 20+ generalist specialists into specialized functional groups, significantly improving operational agility and Mean Time to Resolution (MTTR) across support operations.</li>
+            <li>Coordinated the post-merger division of 500+ fiscal printers (ECF) across multiple store locations following the Casas Bahia/Globex merger, ensuring full legal compliance and operational continuity throughout the transition.</li>
+          </ul>
+        </div>
+      </div>
+
+    </section>
+  </div>
+
+  <footer class="footer">
+    <span>JEFTE BARBOZA DA SILVA · ENTERPRISE ARCHITECT</span>
+    <span>PAGE 3 OF 4</span>
+  </footer>
+</article>
+
+
+<!-- PAGE 4 — Education · Languages · Certifications · Core Competencies -->
+<article class="cv-page">
+
+  <div class="header-compact">
+    <div>
+      <p class="hc-name">Jefte Barboza da Silva</p>
+      <p class="hc-title">Enterprise Architect · TOGAF 9 · COBIT · ITIL</p>
+    </div>
+    <div class="hc-right">
+      <a href="mailto:jefte.barboza@gmail.com">jefte.barboza@gmail.com</a>
+      <a href="https://www.linkedin.com/in/jeftebarboza">linkedin.com/in/jeftebarboza</a>
+    </div>
+  </div>
+
+  <div class="body">
+    <div class="two-col" style="margin-top:20px;">
+
+      <!-- Left Column: Education + Languages -->
+      <div>
+        <section style="margin-top:0">
+          <p class="section-label">Academic Background</p>
+          <h2 class="section-title">Education</h2>
+
+          <div class="edu-entry">
+            <p class="edu-degree">Digital Technologies: Business Strategies <span style="font-size:9px;color:var(--ink-muted);font-weight:400">(Executive Program — United States)</span></p>
+            <p class="edu-institution">California State University, Northridge (CSUN)</p>
+            <p class="edu-year">2022</p>
+            <p class="edu-desc">Executive program focused on digital innovation, data-driven business models, and technology strategy from a U.S. market perspective. Direct exposure to American industry standards and organizational practices.</p>
+          </div>
+
+          <div class="edu-entry">
+            <p class="edu-degree">MBA in Solutions Architecture <span style="font-size:9px;color:var(--gold);font-weight:500">· GPA 9.6/10</span></p>
+            <p class="edu-institution">FIAP — Faculty of Informatics and Business Administration</p>
+            <p class="edu-year">2019 – 2020</p>
+            <p class="edu-desc">Advanced study in architectural patterns, microservices, cloud computing, systems integration, and enterprise solution governance. Equivalent to a U.S. Master's-level program in Information Systems Architecture (credential evaluation pending).</p>
+          </div>
+
+          <div class="edu-entry">
+            <p class="edu-degree">MBA in IT Management &amp; Governance <span style="font-size:9px;color:var(--gold);font-weight:500">· GPA 9.0/10</span></p>
+            <p class="edu-institution">FIAP — Faculty of Informatics and Business Administration</p>
+            <p class="edu-year">2012 – 2013</p>
+            <p class="edu-desc">Governance frameworks (COBIT, ITIL), portfolio management, IT-business strategic alignment, and regulatory compliance. Equivalent to U.S. Master's-level program in IT Governance (credential evaluation pending).</p>
+          </div>
+
+          <div class="edu-entry">
+            <p class="edu-degree">B.S. in Systems Analysis &amp; Development <span style="font-size:9px;color:var(--gold);font-weight:500">· GPA 8.0/10</span></p>
+            <p class="edu-institution">Universidade Nove de Julho (UNINOVE)</p>
+            <p class="edu-year">2008 – 2011</p>
+            <p class="edu-desc">Software engineering, systems modeling, database design, and corporate application development.</p>
+          </div>
+
+          <div class="edu-entry">
+            <p class="edu-degree">Technical Diploma in Information Technology</p>
+            <p class="edu-institution">SENAC — National Commercial Learning Service</p>
+            <p class="edu-year">2006 – 2008</p>
+            <p class="edu-desc">Infrastructure, IT support, networking, and operating systems.</p>
+          </div>
+        </section>
+
+        <section style="margin-top:14px">
+          <p class="section-label">Communication</p>
+          <h2 class="section-title">Languages</h2>
+          <div class="lang-row">
+            <span class="lang-name">Portuguese</span>
+            <span class="lang-level">Native</span>
+          </div>
+          <div class="lang-row">
+            <span class="lang-name">English</span>
+            <span class="lang-level">Professional Working Proficiency</span>
+          </div>
+        </section>
+      </div>
+
+      <!-- Right Column: Certifications + Competencies -->
+      <div>
+        <section style="margin-top:0">
+          <p class="section-label">Credentials</p>
+          <h2 class="section-title">Certifications</h2>
+
+          <span class="cert-group-label">Governance &amp; Architecture</span>
+          <div class="cert-item"><span class="cert-dot"></span>TOGAF 9 — Gnosis Knowledge Solutions</div>
+          <div class="cert-item"><span class="cert-dot"></span>COBIT Foundation — ILUMNA IT &amp; Cloud Governance</div>
+          <div class="cert-item"><span class="cert-dot"></span>ITIL Foundation — ILUMNA IT &amp; Cloud Governance</div>
+
+          <span class="cert-group-label">Artificial Intelligence</span>
+          <div class="cert-item"><span class="cert-dot"></span>AI Fluency Framework &amp; Foundations — Anthropic <span style="font-size:9px;color:var(--gold);margin-left:4px">★ Mar 2026</span></div>
+          <div class="cert-item"><span class="cert-dot"></span>Generative AI Fundamentals — Databricks</div>
+
+          <span class="cert-group-label">Data &amp; Analytics</span>
+          <div class="cert-item"><span class="cert-dot"></span>Databricks Fundamentals — Databricks</div>
+          <div class="cert-item"><span class="cert-dot"></span>Data Pipelines with Lakeflow Spark — Databricks</div>
+          <div class="cert-item"><span class="cert-dot"></span>Data Ingestion with Lakeflow Connect — Databricks</div>
+
+          <span class="cert-group-label">DevOps, Agile &amp; Architecture</span>
+          <div class="cert-item"><span class="cert-dot"></span>DevOps &amp; Agile Culture — FIAP</div>
+          <div class="cert-item"><span class="cert-dot"></span>Services Architecture / API / Mobile — FIAP</div>
+          <div class="cert-item"><span class="cert-dot"></span>Jira Administration — Atlassian</div>
+          <div class="cert-item"><span class="cert-dot"></span>Jira Essentials with Agile Mindset — Atlassian</div>
+
+          <span class="cert-group-label">Cloud &amp; Leadership</span>
+          <div class="cert-item"><span class="cert-dot"></span>AWS Cloud Practitioner Essentials — Amazon</div>
+          <div class="cert-item"><span class="cert-dot"></span>Google Cloud Platform Foundation — Coursera</div>
+          <div class="cert-item"><span class="cert-dot"></span>Strategic Planning — G4 Education</div>
+          <div class="cert-item"><span class="cert-dot"></span>Leadership Development — Escola Conquer</div>
+          <div class="cert-item"><span class="cert-dot"></span>Six Sigma Yellow Belt (SSYB) — VMEdu</div>
+        </section>
+
+        <section style="margin-top:12px">
+          <p class="section-label">Differentiators</p>
+          <h2 class="section-title">Core Competencies</h2>
+          <div class="competency-list">
+            <div class="competency-item">Enterprise Architecture design using TOGAF 9, ArchiMate, Zachman, and C4 Model — delivering scalable IT strategies aligned with corporate business objectives across critical infrastructure sectors.</div>
+            <div class="competency-item">Data Governance and MDM leadership applying DAMA, SOX, GDPR, and LGPD frameworks in complex, regulated corporate environments — with direct experience in U.S. Sarbanes-Oxley compliance for NYSE-listed organizations.</div>
+            <div class="competency-item">Enterprise AI strategy and platform evaluation — including Anthropic Claude, OpenAI, Amazon Q Business, and Microsoft Copilot — with TCO analysis, PoC execution, and architectural recommendation to executive leadership.</div>
+            <div class="competency-item">Digital Transformation leadership across energy, telecommunications, healthcare insurance, fintech, and retail sectors — delivering technology roadmaps and operating models with measurable organizational impact.</div>
+            <div class="competency-item">Portfolio and Roadmap Management using Scrum, Kanban, SAFe, OKR, Azure DevOps, and Atlassian Suite — governing concurrent portfolios of 20–30+ strategic technology projects.</div>
+            <div class="competency-item">Business-IT Alignment through BPMN and Capability Mapping — translating complex business requirements into viable, sustainable, and compliant technology solutions for C-level stakeholders.</div>
+          </div>
+        </section>
+      </div>
+
+    </div>
+  </div>
+
+  <footer class="footer">
+    <span>JEFTE BARBOZA DA SILVA · ENTERPRISE ARCHITECT</span>
+    <span>PAGE 4 OF 4</span>
+  </footer>
+</article>
+
+</body>
+</html>
