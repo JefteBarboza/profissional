@@ -49,10 +49,9 @@
     margin-bottom: calc((var(--a4-h) * 0.083) + 0px);
   }
 
-  /* HEADER */
   .header {
     background: var(--accent);
-    padding: 28px var(--pad-x) 22px;
+    padding: 24px var(--pad-x) 18px;
     position: relative;
     overflow: hidden;
     flex-shrink: 0;
@@ -82,18 +81,32 @@
     text-decoration:none; line-height:1.8; font-weight:300;
   }
   .header-divider {
-    height:1px; background:rgba(255,255,255,0.15); margin:14px 0 12px;
+    height:1px; background:rgba(255,255,255,0.15); margin:12px 0 10px;
   }
   .summary {
-    font-size:11px; line-height:1.65;
+    font-size:10.5px; line-height:1.6;
     color:rgba(255,255,255,0.85); font-weight:300;
     text-align:justify; hyphens:auto;
   }
-  .summary strong {
-    color:#fff; font-weight:500;
+  .summary strong { color:#fff; font-weight:500; }
+
+  /* ENDEAVOR BANNER */
+  .endeavor-banner {
+    background: rgba(184,150,12,0.13);
+    border-left: 3px solid var(--gold);
+    padding: 6px 12px;
+    margin-top: 10px;
+    font-size: 9.5px;
+    color: rgba(255,255,255,0.9);
+    line-height: 1.5;
+  }
+  .endeavor-banner strong {
+    font-family:'DM Mono',monospace;
+    font-size:7px; letter-spacing:1.8px;
+    text-transform:uppercase; color:var(--gold);
+    display:block; margin-bottom:2px;
   }
 
-  /* HEADER COMPACTO */
   .header-compact {
     background:var(--accent); padding:11px var(--pad-x);
     display:flex; justify-content:space-between; align-items:center;
@@ -114,7 +127,6 @@
     color:rgba(255,255,255,0.48); text-decoration:none;
   }
 
-  /* CORPO */
   .body {
     padding: 0 var(--pad-x) var(--pad-y);
     flex: 1;
@@ -123,10 +135,9 @@
     flex-direction: column;
   }
 
-  /* SKILLS STRIP */
   .skills-strip {
     background:var(--accent-light); margin:0 calc(-1 * var(--pad-x));
-    padding:12px var(--pad-x); border-bottom:1px solid var(--rule);
+    padding:11px var(--pad-x); border-bottom:1px solid var(--rule);
     flex-shrink:0;
   }
   .skills-strip-grid {
@@ -143,8 +154,7 @@
     padding:1px 6px; border-radius:2px; white-space:nowrap;
   }
 
-  /* SEÇÃO */
-  section { margin-top:16px; flex-shrink:0; }
+  section { margin-top:14px; flex-shrink:0; }
   .section-label {
     font-family:'DM Mono',monospace; font-size:7.5px; letter-spacing:2.5px;
     text-transform:uppercase; color:var(--gold); font-weight:500; margin-bottom:2px;
@@ -155,7 +165,6 @@
     margin-bottom:12px;
   }
 
-  /* CARGO */
   .job { margin-bottom:12px; padding-bottom:12px; border-bottom:1px solid var(--rule); }
   .job:last-child { border-bottom:none; margin-bottom:0; padding-bottom:0; }
   .job-header {
@@ -193,20 +202,11 @@
     color:var(--accent); background:var(--accent-light);
     padding:1px 6px; margin-bottom:3px; border-left:2px solid var(--accent);
   }
-  .impact-badge {
-    display:inline-block; font-family:'DM Mono',monospace; font-size:8px;
-    color:var(--gold); background:rgba(184,150,12,0.08);
-    border:1px solid rgba(184,150,12,0.3);
-    padding:0px 5px; border-radius:2px; margin-left:4px;
-    vertical-align:middle;
-  }
 
-  /* DUAS COLUNAS */
   .two-col {
     display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:16px; flex:1;
   }
 
-  /* EDUCAÇÃO */
   .edu-entry { margin-bottom:9px; padding-bottom:9px; border-bottom:1px solid var(--rule); }
   .edu-entry:last-child { border-bottom:none; margin-bottom:0; padding-bottom:0; }
   .edu-degree { font-size:10.5px; font-weight:600; color:var(--ink); line-height:1.35; margin-bottom:1px; }
@@ -214,7 +214,6 @@
   .edu-year { font-family:'DM Mono',monospace; font-size:8.5px; color:var(--ink-muted); }
   .edu-desc { font-size:9px; line-height:1.5; color:var(--ink-muted); margin-top:2px; text-align:justify; hyphens:auto; }
 
-  /* IDIOMAS */
   .lang-row {
     display:flex; justify-content:space-between; align-items:center;
     padding:5px 0; border-bottom:1px solid var(--rule);
@@ -223,7 +222,6 @@
   .lang-name { font-size:11px; font-weight:500; }
   .lang-level { font-family:'DM Mono',monospace; font-size:9px; color:var(--ink-muted); }
 
-  /* COMPETÊNCIAS */
   .competency-list { display:flex; flex-direction:column; gap:4px; }
   .competency-item {
     font-size:10px; color:var(--ink-soft); padding-left:13px;
@@ -233,7 +231,6 @@
     content:'◆'; position:absolute; left:0; color:var(--gold); font-size:5.5px; top:4px;
   }
 
-  /* CERTIFICAÇÕES */
   .cert-group-label {
     font-family:'DM Mono',monospace; font-size:7px; letter-spacing:1.8px;
     text-transform:uppercase; color:var(--gold); margin-bottom:3px;
@@ -247,7 +244,6 @@
   .cert-item:last-child { border-bottom:none; }
   .cert-dot { width:4px; height:4px; border-radius:50%; background:var(--gold); flex-shrink:0; }
 
-  /* RODAPÉ */
   .footer {
     background:var(--accent); padding:9px var(--pad-x);
     display:flex; justify-content:space-between; align-items:center; flex-shrink:0;
@@ -257,32 +253,12 @@
     color:rgba(255,255,255,0.35); letter-spacing:0.8px;
   }
 
-  /* ENDEAVOR BANNER */
-  .endeavor-banner {
-    background: rgba(184,150,12,0.08);
-    border-left: 3px solid var(--gold);
-    padding: 7px 12px;
-    margin: 10px 0 0 0;
-    font-size: 10px;
-    color: var(--ink-soft);
-    line-height: 1.5;
-  }
-  .endeavor-banner strong {
-    font-family:'DM Mono',monospace;
-    font-size:7.5px; letter-spacing:1.5px;
-    text-transform:uppercase; color:var(--gold);
-    display:block; margin-bottom:3px;
-  }
-
   @media print {
     @page { size:A4; margin:0; }
     body { background:white; padding:0; gap:0; }
     .cv-page {
-      box-shadow:none;
-      page-break-after:always;
-      break-after:page;
-      transform:none;
-      margin-bottom:0;
+      box-shadow:none; page-break-after:always; break-after:page;
+      transform:none; margin-bottom:0;
     }
     .cv-page:last-child { page-break-after:avoid; break-after:avoid; }
   }
@@ -290,9 +266,8 @@
 </head>
 <body>
 
-<!-- PAGE 1 — Header · Skills · J&Tech · Auren -->
+<!-- PAGE 1 -->
 <article class="cv-page">
-
   <header class="header">
     <div class="header-top">
       <div class="name-block">
@@ -308,12 +283,15 @@
     </div>
     <div class="header-divider"></div>
     <p class="summary">
-      Enterprise Architect (TOGAF 9 · COBIT · ITIL) with 15+ years of progressive experience designing and implementing <strong>enterprise-grade governance frameworks, data architectures, and AI strategy</strong> for organizations operating critical national infrastructure across energy, telecommunications, healthcare insurance, financial services, and retail sectors. Proven record of translating complex business requirements into scalable, compliant, and measurable technology solutions in environments subject to rigorous regulatory standards, including SOX, LGPD, and GDPR. Currently operating as an independent consultant through J&Tech Ltda., delivering high-impact enterprise architecture and data governance solutions to Brazil's largest organizations — simultaneously serving multiple Fortune-equivalent clients across regulated sectors — with directly transferable expertise to U.S. priorities in <strong>broadband infrastructure modernization, clean energy governance, AI adoption, and critical infrastructure resilience</strong>.
+      Enterprise Architect (TOGAF 9 · COBIT · ITIL) with 15+ years of progressive experience designing and implementing <strong>enterprise-grade governance frameworks, data architectures, and AI strategy</strong> for organizations operating critical national infrastructure across energy, telecommunications, healthcare insurance, financial services, and retail sectors. Proven record of translating complex business requirements into scalable, compliant, and measurable technology solutions in environments subject to rigorous regulatory standards, including SOX, GDPR, and international data privacy frameworks. Currently operating as an independent consultant through J&Tech Ltda., simultaneously serving multiple Fortune-equivalent clients across regulated sectors — with directly transferable expertise to U.S. priorities in <strong>broadband infrastructure modernization, clean energy governance, AI adoption, and critical infrastructure resilience</strong>.
     </p>
+    <div class="endeavor-banner">
+      <strong>Proposed U.S. Endeavor</strong>
+      Advancing scalable enterprise architecture governance and AI strategy frameworks for critical infrastructure sectors — including energy, telecommunications, and healthcare — in alignment with U.S. federal priorities under the Inflation Reduction Act, CHIPS and Science Act, and CISA National Infrastructure Protection mandates.
+    </div>
   </header>
 
   <div class="body">
-
     <div class="skills-strip">
       <div class="skills-strip-grid">
         <div class="skill-group">
@@ -359,7 +337,7 @@
       </div>
     </div>
 
-    <section style="margin-top:14px">
+    <section style="margin-top:12px">
       <p class="section-label">Professional Trajectory</p>
       <h2 class="section-title">Professional Experience</h2>
 
@@ -385,7 +363,7 @@
         <p class="job-role">Technology Leader — Architecture, Data, Software &amp; AI</p>
         <p class="job-sector">Renewable Energy · 6+ GW Installed Capacity · Brazil's Largest Private Energy Generator</p>
         <p class="job-desc">
-          Engaged as independent consultant through J&Tech Ltda. to lead enterprise architecture and data strategy for Brazil's largest private renewable energy generator. Directed two multidisciplinary squads of 14 professionals — including Data Engineers, Solution and Data Architects, Integration Engineers, and Developers — overseeing the design and delivery of mission-critical data infrastructure supporting real-time energy generation planning, grid balancing, and regulatory reporting across 6+ GW of installed capacity.
+          Engaged as independent consultant through J&Tech Ltda. to lead enterprise architecture and data strategy for Brazil's largest private renewable energy generator. Directed two multidisciplinary squads of 14 professionals — including Data Engineers, Solution and Data Architects, Integration Engineers, and Developers — overseeing the design and delivery of mission-critical data infrastructure supporting real-time energy generation planning, grid balancing, and regulatory reporting across 6+ GW of installed capacity. This work directly parallels the governance challenges facing U.S. renewable energy operators scaling under the Inflation Reduction Act and DOE clean energy expansion priorities.
         </p>
         <div class="job-achievements">
           <h5>Key Projects</h5>
@@ -414,9 +392,8 @@
 </article>
 
 
-<!-- PAGE 2 — Vtal · Seguros Unimed -->
+<!-- PAGE 2 -->
 <article class="cv-page">
-
   <div class="header-compact">
     <div>
       <p class="hc-name">Jefte Barboza da Silva</p>
@@ -442,7 +419,7 @@
         <p class="job-role">Corporate &amp; Solutions Architect · IT Governance · Agility &amp; DevOps</p>
         <p class="job-sector">Telecommunications · Brazil's Largest Neutral Fiber-Optic Network · 426,000 km · 2,380 Municipalities · All 27 States</p>
         <p class="job-desc">
-          Engaged as an independent consultant through J&Tech Ltda. via Triad Integration to restructure the entire IT Value Chain and establish enterprise-grade Portfolio Governance for the Technology Vice-Presidency of Brazil's largest neutral fiber-optic network operator. Operated within a high-stakes environment where IT governance failures carry operational consequences for millions of citizens, businesses, and government institutions dependent on the national telecommunications infrastructure.
+          Engaged as an independent consultant through J&Tech Ltda. via Triad Integration to restructure the entire IT Value Chain and establish enterprise-grade Portfolio Governance for the Technology Vice-Presidency of Brazil's largest neutral fiber-optic network operator — an infrastructure scale directly comparable to U.S. national broadband expansion challenges under the BEAD program and FCC resilience mandates. Operated within a high-stakes environment where IT governance failures carry operational consequences for millions of citizens, businesses, and government institutions dependent on the national telecommunications infrastructure.
         </p>
         <div class="job-achievements">
           <h5>Key Projects</h5>
@@ -469,7 +446,7 @@
         <p class="job-role">Enterprise Architect · IT Agility Lead · Solutions Architect · Senior Data Architect</p>
         <p class="job-sector">Healthcare Insurance · One of Brazil's Largest Insurers · Highly Regulated Sector · Founded 1994</p>
         <p class="job-desc">
-          Engaged as an independent consultant through J&Tech Ltda. to design and implement enterprise governance frameworks, digital transformation initiatives, and technology operating models for one of Brazil's largest healthcare insurance organizations — a sector subject to stringent regulatory compliance requirements analogous to U.S. HIPAA and CMS mandates.
+          Engaged as an independent consultant through J&Tech Ltda. to design and implement enterprise governance frameworks, digital transformation initiatives, and technology operating models for one of Brazil's largest healthcare insurance organizations. Operating in a sector subject to stringent regulatory compliance requirements directly analogous to U.S. HIPAA mandates and CMS digital modernization requirements — including governance of claims processing, health provision data, and customer management under Brazil's national insurance regulatory authority — this engagement produced governance architectures transferable to U.S. healthcare organizations facing similar compliance and interoperability challenges.
         </p>
         <div class="job-achievements">
           <h5>Key Achievements</h5>
@@ -492,9 +469,8 @@
 </article>
 
 
-<!-- PAGE 3 — Riachuelo · Saraiva · Via Varejo · Casas Bahia -->
+<!-- PAGE 3 -->
 <article class="cv-page">
-
   <div class="header-compact">
     <div>
       <p class="hc-name">Jefte Barboza da Silva</p>
@@ -533,7 +509,7 @@
           <span class="job-period">Oct 2018 — Jan 2019</span>
         </div>
         <p class="job-role">Senior Solutions &amp; Data Architect (IT Specialist)</p>
-        <p class="job-sector">Cultural Retail · 100+ Stores Nationwide</p>
+        <p class="job-sector">Cultural Retail · 100+ Stores Nationwide · Short-term engagement concluded upon company's judicial restructuring process</p>
         <div class="job-achievements">
           <ul>
             <li>Implemented SAP Power Designer 16.6 as the organizational standard for database object documentation and data modeling — establishing a replicable methodology for legacy system inventory.</li>
@@ -549,9 +525,9 @@
           <span class="job-period">Jul 2012 — Oct 2018</span>
         </div>
         <p class="job-role">IT Architecture Team Lead · IT Coordinator · Senior Data Architect · Business Analyst</p>
-        <p class="job-sector">Retail · Brazil's Market Leader in Electronics &amp; Appliances · Publicly Traded (NYSE-listed) · Casas Bahia &amp; Ponto Frio</p>
+        <p class="job-sector">Retail · Brazil's Market Leader in Electronics &amp; Appliances · Publicly Traded on B3 (Brazil's Stock Exchange) · Subject to U.S. SOX Compliance · Casas Bahia &amp; Ponto Frio</p>
         <p class="job-desc">
-          Led enterprise data architecture and IT governance for one of Brazil's largest publicly traded retail corporations — a NYSE-listed company subject to rigorous U.S. Sarbanes-Oxley Act (SOX) compliance requirements. Managed a portfolio of 20+ data architecture projects covering 25+ core corporate systems, designing the governance frameworks that directly protected shareholder value and ensured continued regulatory compliance across annual SOX audit cycles.
+          Led enterprise data architecture and IT governance for one of Brazil's largest publicly traded retail corporations — subject to rigorous U.S. Sarbanes-Oxley Act (SOX) compliance requirements as a publicly traded company operating under international audit standards. Managed a portfolio of 20+ data architecture projects covering 25+ core corporate systems, designing the governance frameworks that directly protected shareholder value and ensured continued regulatory compliance across annual SOX audit cycles.
         </p>
         <div class="job-achievements">
           <h5>Key Achievements</h5>
@@ -574,8 +550,8 @@
         <p class="job-sector">Retail · 940+ Stores · 26.3 Million Registered Customers</p>
         <div class="job-achievements">
           <ul>
-            <li>Led the complete restructuring of the Help Desk operation — transforming a team of 20+ generalist specialists into specialized functional groups, significantly improving operational agility and Mean Time to Resolution (MTTR) across support operations.</li>
-            <li>Coordinated the post-merger division of 500+ fiscal printers (ECF) across multiple store locations following the Casas Bahia/Globex merger, ensuring full legal compliance and operational continuity throughout the transition.</li>
+            <li>Led complete restructuring of the Help Desk operation — transforming a team of 20+ generalist specialists into specialized functional groups, significantly improving operational agility and Mean Time to Resolution (MTTR) across support operations at national scale.</li>
+            <li>Coordinated post-merger technology operations following the Casas Bahia/Globex merger, ensuring full legal compliance and operational continuity throughout the integration transition.</li>
           </ul>
         </div>
       </div>
@@ -590,9 +566,8 @@
 </article>
 
 
-<!-- PAGE 4 — Education · Languages · Certifications · Core Competencies -->
+<!-- PAGE 4 -->
 <article class="cv-page">
-
   <div class="header-compact">
     <div>
       <p class="hc-name">Jefte Barboza da Silva</p>
@@ -607,7 +582,6 @@
   <div class="body">
     <div class="two-col" style="margin-top:20px;">
 
-      <!-- Left Column: Education + Languages -->
       <div>
         <section style="margin-top:0">
           <p class="section-label">Academic Background</p>
@@ -663,7 +637,6 @@
         </section>
       </div>
 
-      <!-- Right Column: Certifications + Competencies -->
       <div>
         <section style="margin-top:0">
           <p class="section-label">Credentials</p>
@@ -699,10 +672,10 @@
 
         <section style="margin-top:12px">
           <p class="section-label">Differentiators</p>
-           <h2 class="section-title">Core Competencies</h2>
+          <h2 class="section-title">Core Competencies</h2>
           <div class="competency-list">
             <div class="competency-item">Enterprise Architecture design using TOGAF 9, ArchiMate, Zachman, and C4 Model — delivering scalable IT strategies aligned with corporate business objectives across critical infrastructure sectors.</div>
-            <div class="competency-item">Data Governance and MDM leadership applying DAMA, SOX, GDPR, and LGPD frameworks in complex, regulated corporate environments — with direct experience in U.S. Sarbanes-Oxley compliance for NYSE-listed organizations.</div>
+            <div class="competency-item">Data Governance and MDM leadership applying DAMA, SOX, GDPR, and international privacy frameworks in complex, regulated corporate environments — with direct experience in U.S. Sarbanes-Oxley compliance for publicly traded organizations.</div>
             <div class="competency-item">Enterprise AI strategy and platform evaluation — including Anthropic Claude, OpenAI, Amazon Q Business, and Microsoft Copilot — with TCO analysis, PoC execution, and architectural recommendation to executive leadership.</div>
             <div class="competency-item">Digital Transformation leadership across energy, telecommunications, healthcare insurance, fintech, and retail sectors — delivering technology roadmaps and operating models with measurable organizational impact.</div>
             <div class="competency-item">Portfolio and Roadmap Management using Scrum, Kanban, SAFe, OKR, Azure DevOps, and Atlassian Suite — governing concurrent portfolios of 20–30+ strategic technology projects.</div>
